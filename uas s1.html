@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Portofolio Rizal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    color: #00ffd5;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #00ffd5;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px;
+    animation: fade 0.6s ease;
+}
+
+/* ===== HOME (REFERENSI) ===== */
+.home-ref {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 80vh;
+}
+
+.home-left small {
+    color: #1e90ff;
+    font-size: 14px;
+}
+
+.home-left h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.home-left h1 span {
+    color: #1e90ff;
+}
+
+.home-left h3 {
+    font-weight: normal;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.home-left p {
+    max-width: 500px;
+    line-height: 1.7;
+    opacity: 0.75;
+}
+
+.home-buttons {
+    margin-top: 25px;
+}
+
+.home-buttons button {
+    margin-right: 15px;
+}
+
+.home-right img {
+    width: 360px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card h1 {
+    color: #00ffd5;
+    margin-bottom: 15px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #00ffd5;
+    box-shadow: 0 0 20px #00ffd5;
+}
+
+/* ===== PROJECT ===== */
+.project {
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* ===== FORM ===== */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    background: #00ffd5;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: white;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    opacity: 0.6;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>MyPortfolio</h2>
+    <nav>
+        <a href="#" onclick="show('home')">Home</a>
+        <a href="#" onclick="show('profile')">Profile</a>
+        <a href="#" onclick="show('karya')">Projects</a>
+        <a href="#" onclick="show('media')">Media</a>
+        <a href="#" onclick="show('contact')">Contact</a>
+    </nav>
+</header>
+
+<div class="container" id="content"></div>
+
+<footer>
+    © 2025 • Portofolio Rizal Ananta
+</footer>
+
+<script>
+function show(page) {
+    let c = document.getElementById("content");
+
+    if (page === "home") {
+        c.innerHTML = `
+        <div class="home-ref">
+            <div class="home-left">
+                <small>Halo, saya</small>
+                <h1>Rizal <span>Ananta</span></h1>
+                <h3>Mahasiswa Sistem Informasi</h3>
+                <p>
+                    Saya seorang mahasiswa yang tertarik pada pengembangan web dan teknologi.
+                    Selalu belajar untuk menciptakan website yang modern dan bermanfaat.
+                </p>
+
+                <div class="home-buttons">
+                    <button onclick="show('karya')">Lihat Project</button>
+                    <button onclick="show('contact')">Hubungi Saya</button>
+                </div>
+            </div>
+
+            <div class="home-right">
+                <img src="" alt="Foto Saya">
+            </div>
+        </div>`;
+    }
+
+    if (page === "profile") {
+        c.innerHTML = `
+        <div class="card">
+            <h1>Profile</h1>
+            <div class="profile-box">
+                <img src="images/profile.jpg" class="profile-img">
+                <div>
+                    <p><b>Nama:</b> Rizal Ananta</p>
+                    <p><b>Jurusan:</b> Sistem Informasi</p>
+                    <p><b>Minat:</b> Web Development</p>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    if (page === "karya") {
+        c.innerHTML = `
+        <div class="card">
+            <h1>Projects</h1>
+            <div class="project">🌐 Website Portofolio</div>
+            <div class="project">🎮 Game JavaScript</div>
+            <div class="project">🎨 UI Web Design</div>
+        </div>`;
+    }
+
+    if (page === "media") {
+        c.innerHTML = `
+        <div class="card">
+            <h1>Media</h1>
+            <p>Foto, video, dan dokumentasi kegiatan saya.</p>
+        </div>`;
+    }
+
+    if (page === "contact") {
+        c.innerHTML = `
+        <div class="card">
+            <h1>Contact</h1>
+            <input type="text" placeholder="Nama">
+            <input type="email" placeholder="Email">
+            <textarea rows="4" placeholder="Pesan"></textarea>
+            <button>Kirim</button>
+        </div>`;
+    }
+}
+
+show("home");
+</script>
+
+</body>
+</html>
